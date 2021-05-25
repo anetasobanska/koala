@@ -2,18 +2,23 @@ const calcAverage = (a, b, c) => {
     return (a + b + c) / 3
 }
 
-function averageKoala(a,b,c) {
-    const scoreKoala = calcAverage(a,b,c)
-    return scoreKoala
-}
-function averageDelfin () {
-    const scoreDelfin = calcAverage()
-    return scoreDelfin
+let scoreKoala = calcAverage(99,100,100);
+let scoreDelfin = calcAverage(100,100,100);
+    
+function checkWinner(scoreKoala, scoreeDelfin){
+    if(scoreKoala > scoreeDelfin * 2) {
+        return "Koalas is the winner" 
+    } else if (scoreeDelfin > (scoreKoala * 2)){
+        return "Delfins is the winner"
+    } else if (scoreKoala === scoreeDelfin){
+        return "remis"
+    } else {
+        return "No one wins"
+    }
 }
 
-function checkWinner(averageKoala, averageDelfin){
-    return (averageKoala > averageDelfin) ? "Koalas is the winner" : "Delfins is the winner"
-}
+console.log(checkWinner(scoreKoala, scoreDelfin));
 
-console.log(averageKoala(10,10,10));
-console.log(checkWinner(averageKoala(10, 10, 10), averageDelfin(20,20,20)));
+scoreKoala = calcAverage(10,10,10);
+scoreDelfin = calcAverage(10,10,10);
+console.log(checkWinner(scoreKoala, scoreDelfin));
